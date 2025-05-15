@@ -21,10 +21,10 @@ jobs:
           distribution: 'temurin'
 
       - name: Compile Java code
-        run: javac -cp ".;lib/*" YourMainTestClass.java
+        run: javac -cp ".:lib/*" testData.java
 
       - name: Run Java Tests
-        run: java -cp ".;lib/*" YourMainTestClass
+        run: java -cp ".:lib/*" testData
 
       - name: Upload Test Report
         if: always()
