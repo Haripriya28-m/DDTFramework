@@ -21,9 +21,3 @@ jobs:
 
     - name: Run Java Tests
       run: java testData
-
-    - name: Upload Test Report
-      uses: actions/upload-artifact@v3.1.4
-      with:
-        name: test-report
-        path: output/
