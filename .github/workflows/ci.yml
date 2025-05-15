@@ -7,23 +7,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
 
-      - name: Compile Java code
-        run: javac -cp ".;lib/*" testData.java
+    - name: Compile Java code
+      run: javac -d . testData.java
 
-      - name: Run Java Tests
-        run: java -cp ".;lib/*" testData
+    - name: Run Java Tests
+      run: java testData
 
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-report
-          path: output/  # Change to the folder where your output is saved, if any
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: output/
